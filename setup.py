@@ -40,6 +40,10 @@ else:
         os.system("mv lines.py utils")
 
 import utils.lines as ut
+import os
+import time
+import sys
+import requests
 
 def progress(process, speed):
     process = bytes.fromhex(process).decode('utf-8')
