@@ -51,7 +51,7 @@ def progress(process, speed):
 os.system(bytes.fromhex(ut.line3).decode('utf-8'))
 print (bytes.fromhex(ut.line4).decode('utf-8'))
 os.system(bytes.fromhex(ut.line5).decode('utf-8'))
-if os.isfile(bytes.fromhex(ut.line30).decode('utf-8')):
+if os.path.isfile(bytes.fromhex(ut.line30).decode('utf-8')):
     pass
 
 else:
