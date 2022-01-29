@@ -83,6 +83,7 @@ while True:
                 ne = i.replace('"', "")
 
         ne = ne.replace(bytes.fromhex(ut.line26).decode('utf-8'), "")
+        ne = ne.replace(bytes.fromhex(ut.line31).decode('utf-8'), "")
         ne = ne.replace(bytes.fromhex(ut.line27).decode('utf-8'), "")
         os.system(bytes.fromhex(ut.line3).decode('utf-8'))
         print (bytes.fromhex(ut.line22).decode('utf-8') + ne)
@@ -106,3 +107,5 @@ while True:
 os.system(bytes.fromhex(ut.line3).decode('utf-8'))
 progress(ut.line28, 0.1)
 progress(ut.line29, 5)
+os.system("clear")
+print ("ERROR DETECTED CANNOT INSTALL SUCCESSFULLY")
