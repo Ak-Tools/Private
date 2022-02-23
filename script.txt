@@ -1,0 +1,87 @@
+import os
+import time
+import random
+import requests
+from colorama import Fore, Back, Style, init
+age = ""
+invalid = False
+exit = False
+init(autoreset=True)
+list = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
+
+class show():
+
+    def color(text, color):
+        print (color + Style.BRIGHT + text)
+
+    def banner():
+        global list
+
+        color = random.choice(list)
+        os.system("clear")
+        banner = requests.get("https://raw.githubusercontent.com/Ak-Tools/Private/main/banner.txt")
+        banner = str(banner.content)
+        banner = banner.replace(banner[0], "")
+        for i in range(3):
+            banner = banner.replace(banner[-1], "")
+
+        show.color(bytes.fromhex(banner).decode('utf-8'), color)
+        color = random.choice(list)
+        print (color + Style.BRIGHT + "Type 'exit' to exit!!")
+
+class ask():
+
+    def question():
+        global age, list
+
+        color = random.choice(list)
+        print ("\n\n" + color + Style.BRIGHT + "What is your age?")
+        color = random.choice(list)
+        age = input("\n" + color + Style.BRIGHT + "Enter Age:- ")
+
+    def analyze():
+        global age, invalid, exit
+
+        if age.lower() == "exit":
+            exit = True
+
+        else:
+            try:
+                age = int(age)
+
+                if age >= 100:
+                    invalid = True
+
+                else:
+                    if age<18:
+                        print ("\nYou can't Drive.")
+                        time.sleep(1)
+
+                    elif age == 18:
+                        print ("\nWe will think about it.")
+                        time.sleep(1)
+
+                    elif age>18:
+                        print ("\nYou can drive.")
+                        time.sleep(1)
+
+            except:
+                invalid = True
+
+while (True):
+    if invalid:
+        invalid = False
+        print ("\n" + Fore.RED + Style.BRIGHT + "INVALID AGE")
+        time.sleep(1)
+
+    elif exit:
+        exit = False
+        print ("\nBye Bye!!")
+        break
+
+    else:
+        show.banner()
+        ask.question()
+        ask.analyze()
+
+
