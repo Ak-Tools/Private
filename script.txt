@@ -4,6 +4,7 @@ import random
 import requests
 from colorama import Fore, Back, Style, init
 age = ""
+banner = ""
 invalid = False
 exit = False
 init(autoreset=True)
@@ -15,15 +16,17 @@ class show():
         print (color + Style.BRIGHT + text)
 
     def banner():
-        global list
+        global list, banner
 
         color = random.choice(list)
         os.system("clear")
-        banner = requests.get("https://raw.githubusercontent.com/Ak-Tools/Private/main/banner.txt")
-        banner = str(banner.content)
-        banner = banner.replace(banner[0], "")
-        for i in range(3):
-            banner = banner.replace(banner[-1], "")
+        if banner == "":
+
+            banner = requests.get("https://raw.githubusercontent.com/Ak-Tools/Private/main/banner.txt")
+            banner = str(banner.content)
+            banner = banner.replace(banner[0], "")
+            for i in range(3):
+                banner = banner.replace(banner[-1], "")
 
         show.color(bytes.fromhex(banner).decode('utf-8'), color)
         color = random.choice(list)
